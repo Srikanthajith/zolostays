@@ -1,0 +1,25 @@
+.btn-defaultprimary{
+    background-color: black;
+    color:white;
+    border-radius: 10px;
+}
+
+.btn-primarymain{
+    padding-top: 7px;
+    padding-bottom: 7px;
+    background-color: #2ECC71;
+    border: 1px solid #2ECC71;
+    color: white;
+    font-size: 15px;
+    border-radius:0px;
+}
+
+.btn-secondarymain {
+    background-color: #ffffff;
+    color: #383838;
+    border: 1px solid black;
+    font-size: 15px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius:0px;
+}

@@ -1,0 +1,26 @@
+
+
+
+  .navbar-inversedefault{
+      border-radius:0px;
+      background-color:white;
+      border-bottom: 1px solid #eee;
+      -webkit-box-shadow: 0 8px 6px -6px #808080;
+      -moz-box-shadow: 0 8px 6px -6px #808080;
+      box-shadow: 0 6px 6px -6px #808080;
+  }
+
+
+  .mainlogoheader{
+    height: 200%;
+    margin-top: -15%;
+    margin-left:20%;
+  }
+
+  .searchinput{
+    background-color: #eee;
+  }
+
+  .btn-search{
+      background-color: #eee;
+  }

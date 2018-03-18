@@ -1,0 +1,149 @@
+<div class="row innerborder">
+  <div class="col-md-offset-1 col-md-10">
+    <ul class="nav navbar-nav custom-menus navbar-left">
+      <li class="insiderheader">
+          <a style="color:black;" (click)="statusselected = ''" [ngClass]="{'maintopbaractivelink': statusselected === ''}"> ALL </a>
+      </li>
+      <li class="insiderheader">
+        <a style="color:black;" (click)="statusselected = 'description'" [ngClass]="{'maintopbaractivelink': statusselected === 'description'}"> DESCRIPTION </a>
+      </li>
+      <li class="insiderheader">
+        <a style="color:black;" (click)="statusselected = 'roomtypes'" [ngClass]="{'maintopbaractivelink': statusselected === 'roomtypes'}"> ROOM TYPES </a>
+      </li>
+      <li class="insiderheader">
+        <a style="color:black;" (click)="statusselected = 'food'" [ngClass]="{'maintopbaractivelink': statusselected === 'food'}"> FOOD </a>
+      </li>
+      <li class="insiderheader">
+        <a style="color:black;" (click)="statusselected = 'amenities'" [ngClass]="{'maintopbaractivelink': statusselected === 'amenities'}"> AMENITIES </a>
+      </li>
+      <li class="insiderheader">
+        <a style="color:black;" (click)="statusselected = 'location'" [ngClass]="{'maintopbaractivelink': statusselected === 'location'}"> LOCATION </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<br><br>
+
+
+<div class="row" style="margin-bottom:2%;"  *ngIf="statusselected === 'description' || statusselected === ''">
+    <div class="col-md-offset-1 col-md-7" style="border-bottom:2px solid #eee;padding-bottom:3%;">
+      <h5> {{propertydetails.description}} </h5>
+    </div>
+</div>
+
+
+
+
+<div class="row" style="margin-bottom:2%;" *ngIf="statusselected === 'roomtypes' || statusselected === ''">
+    <div class="col-md-offset-1 col-md-7" style="border-bottom:2px solid #eee;padding-bottom:3%;">
+        <span *ngFor="let room of totalrooms">
+            <div class="col-md-4 cardforrooms" *ngIf="room.value.available === '1'">
+              Deposit: {{room.value.deposit}}
+              <br> Beds: {{room.value.available_beds}}
+              <br> Number of Rooms: {{room.value.numberOfRooms}}
+              <br> Rent: {{room.value.rent}}
+              <br><br>
+              <button style="margin: auto;display: block;" class="btn-primary">BOOK</button>
+              <br>
+            </div>
+          </span>
+      </div>
+</div>
+
+
+
+<div class="row" style="margin-bottom:2%;"  *ngIf="statusselected === 'food' || statusselected === ''">
+    <div class="col-md-offset-1 col-md-7" style="border-bottom:2px solid #eee;padding-bottom:3%;">
+
+        <div class="col-md-4">
+            <div class="col-md-4">
+           <img [src]="'../assets/images/breakfast@2x.png'" class="innerimage" >
+          </div>
+          <div class="col-md-8">
+              <span class="innerdetails"> {{propertydetails.food.breakfast.details ? propertydetails.food.breakfast.details : '-'}} </span>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="col-md-4">
+            <img [src]="'../assets/images/food-on-plate.png'" class="innerimage">
+          </div>
+          <div class="col-md-8">
+              <span class="innerdetails"> {{propertydetails.food.lunch.details ? propertydetails.food.lunch.details : '-'}} </span> 
+          </div>
+        </div>
+
+      <div class="col-md-4">
+          <div class="col-md-4">
+          <img [src]="'../assets/images/icon_dinner.png'"  class="innerimage">
+        </div>
+        <div class="col-md-8">
+            <span class="innerdetails"> {{propertydetails.food.dinner.details}} </span> 
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+<div class="row" style="margin-bottom:2%;"  *ngIf="statusselected === 'amenities' || statusselected === ''">
+    <div class="col-md-offset-1 col-md-7" style="border-bottom:2px solid #eee;padding-bottom:3%;">
+
+
+        <div class="col-md-4" *ngIf="propertydetails.amenities.housekeeping.availability === '1'">
+            <div class="col-md-4">
+            <img [src]="'../assets/images/housekeeping.png'" class="innerimage" >
+          </div>
+          <div class="col-md-8">
+              <span class="innerdetails"> {{propertydetails.amenities.housekeeping.available}} {{propertydetails.amenities.housekeeping.details}}</span>
+          </div>
+        </div>
+
+        <div class="col-md-4" *ngIf="propertydetails.amenities.cctv.availability === '1'">
+          <div class="col-md-4">
+              <img [src]="'../assets/images/security.png'" class="innerimage">
+          </div>
+          <div class="col-md-8">
+              <span class="innerdetails">{{propertydetails.amenities.cctv.available}} {{propertydetails.amenities.cctv.details}} </span>
+          </div>
+        </div>
+
+
+        <div class="col-md-4" *ngIf="propertydetails.amenities.tv.availability === '1'">
+            <div class="col-md-4">
+           <img [src]="'../assets/images/tv.png'"  class="innerimage" >
+          </div>
+          <div class="col-md-8">
+              <span class="innerdetails"> {{propertydetails.amenities.tv.available}} {{propertydetails.amenities.tv.details}} </span>
+          </div>
+        </div>
+
+        <div class="col-md-4" *ngIf="propertydetails.amenities.bathroom.availability === '1'">
+            <div class="col-md-4">
+            <img [src]="'../assets/images/bed.png'"  class="innerimage">
+          </div>
+          <div class="col-md-8">
+              <span class="innerdetails"> {{propertydetails.amenities.bathroom.available}} {{propertydetails.amenities.bathroom.details}} </span> 
+          </div>
+        </div>
+      </div>
+</div>
+
+
+
+<div class="row" style="margin-bottom:2%;"  *ngIf="statusselected === 'location' || statusselected === ''">
+    <div class="col-md-offset-1 col-md-7" style="border-bottom:2px solid #eee;padding-bottom:3%;">
+        <h3 style="opacity:0.6">LOCATION AND NEIGHBOURHOOD</h3>
+        <span *ngFor="let neighbour of neighbourhood">
+          {{neighbour.value.title}} - Distance: {{neighbour.value.distance}} - Time: {{neighbour.value.time}}<br>
+        </span>
+        <br>
+        <iframe [src]='photoURL()' width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+</div>
+
+
+<br><br>
+<br><br>
